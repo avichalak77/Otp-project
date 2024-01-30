@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Activation Portal 2024</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <img src="C:\Users\atulc\OneDrive\Desktop\OTP Project\learnSmasher_Logo.png" alt="learnsmasherlogo">
+  
+    <div class="container">
+        <h2>LearnSmasher EduTech LLP Intership Activation Portal 2024</h2> 
+        <form id="otp-form">
+            <label for="registered-no">Enter your registered no:</label>
+            <input type="text" id="registered-no" name="registered-no" required>
+            <button type="submit">Get OTP</button>
+        </form>
+        <form id="verify-otp-form" style="display:none;">
+            <label for="otp">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+            <button type="submit">Submit OTP</button>
+        </form>
+    </div>
+    <script >
+        // A $( document ).ready() block.
+$( document ).ready(function() {
+    alert( "ready!" );
+	
+});
+ const otp = Math.floor(100000 + Math.random() * 900000);
+  
+document.getElementById('otp-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const registeredNo = document.getElementById('registered-no').value;
+  const otpForm = document.getElementById('otp-form');
+  const verifyOtpForm = document.getElementById('verify-otp-form');
+ console.log(`OTP sent to ${registeredNo}: ${otp}`);
+  otpForm.style.display = 'none';
+  verifyOtpForm.style.display = 'block';
+ // document.getElementById('otp').value = otp;
+  alert(otp);
+ var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.fast2sms.com/dev/bulkV2?authorization=UmxMVQCOEa96o72DWucTdHyNYwRK1l3XnFiSJkpBfv0P5A4eGb4t6NyUvmMIQrAwxuZJkzLDeodCOX9l&variables_values="+otp+"&route=otp&numbers="+registeredNo+"",
+  "method": "GET"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+});
+
+document.getElementById('verify-otp-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const otp2 = document.getElementById('otp').value;
+
+  // Verify the OTP and activate the internship
+  if (otp2 ==otp) {
+    window.location.href = 'Table.html';
+	  //redirect
+      alert('OTP verified. Internship activated.');
+  } else {
+      alert('Invalid OTP. Please try again.');
+  }
+});
+
+
+    </script>
+</body>
+</html>

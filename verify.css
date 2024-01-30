@@ -1,0 +1,40 @@
+body {
+    display: grid;
+    place-items: center;
+    font-family: Arial, sans-serif;
+    background-image: url("C:\Users\atulc\OneDrive\Desktop\OTP Project\background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+}
+img{
+    width: 500%;
+    max-width: 300px;
+    display: block;
+    margin: 60px auto ;
+    
+
+}
+
+table {
+	width: 80%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #0f0f0f;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: #ddd;
+}
